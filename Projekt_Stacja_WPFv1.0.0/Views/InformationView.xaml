@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="ProjektStacjaWPF.Views.InformationView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjektStacjaWPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <!-- Label Style -->
+        <!--<Style TargetType="{x:Type Label}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="FontSize" Value="26"/>
+        </Style>-->
+    
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Background="Green">
+            <Label Content="95"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="Price95" FontSize="30"></Label>
+                <Label Content="zł"></Label>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="3" Background="DarkGreen">
+            <Label Content="98"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="Price98" FontSize="30"></Label>
+                <Label Content="zł"></Label>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2" Background="#202020">
+            <Label Content="ON"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="PriceON" FontSize="30"></Label>
+                <Label Content="zł"></Label>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="3" Background="#FF0066DD">
+            <Label Content="LPG"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="PriceLPG" FontSize="30"></Label>
+                <Label Content="zł"></Label>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="3">
+            <Label Content="Stacja paliw z myjnią" HorizontalAlignment="Left" FontSize="36"/>
+            <Label Content="Mariola Spałek" HorizontalAlignment="Left" Margin="0"/>
+            <Label Content="Kraków, ul. Jana Pawła II 37" HorizontalAlignment="Left" Margin="0"/>
+            <Label Content="31-864 Kraków" HorizontalAlignment="Left" Margin="0"/>
+            <Label Content="Telefon: (+048)766 433 200" HorizontalAlignment="Left" Margin="0"/>
+            <Label Content="Fax: (+048)766 433 201" HorizontalAlignment="Left" Margin="0"/>
+            <Label Content="Email: infostacja@gmail.com" HorizontalAlignment="Left" Margin="0"/>
+        </StackPanel>
+    </Grid>
+    <!--<Grid Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Label>PB95:</Label>
+            <Label>PB98:</Label>
+            <Label>NO:</Label>
+            <Label>LPG:</Label>
+            <Label>Data:</Label>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Label x:Name="LabelPb95">default</Label>
+            <Label x:Name="LabelPb98">default</Label>
+            <Label x:Name="LabelNo">default</Label>
+            <Label x:Name="LabelLpg">default</Label>
+            <Label x:Name="LabelData">default</Label>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label x:Name="Info">Jakieś tam info</Label>
+        </StackPanel>
+
+        <Label VerticalAlignment="Bottom" Grid.Column="1" Grid.ColumnSpan="2">Cennik:</Label>
+    </Grid>-->
+</UserControl>

@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="ProjektStacjaWPF.Views.AdminAddPriceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjektStacjaWPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <!--StackPanel Style-->
+        <Style TargetType="{x:Type StackPanel}" x:Key="StackPanelTemplate">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#20202020"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--Label Style-->
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+
+        <!--Textbox Style-->
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Padding" Value="4"/>
+        </Style>
+
+        <!--Border Style-->
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="BorderBrush" Value="Silver"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions> 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>-->
+        <Border BorderThickness="0,0,3,0" BorderBrush="Silver" Background="White">
+            <StackPanel>
+                <Label Content="Dodaj cenę" Margin="10"/>
+                <Border>
+                    <StackPanel Style="{StaticResource StackPanelTemplate}">
+                        <Label Content="PB95:"></Label>
+                        <TextBox x:Name="PB95">0.00</TextBox>
+                    </StackPanel>
+                </Border>
+
+                <Border>
+                    <StackPanel Style="{StaticResource StackPanelTemplate}">
+                        <Label Content="PB98:"></Label>
+                        <TextBox x:Name="PB98">0.00</TextBox>
+                    </StackPanel>
+                </Border>
+
+                <Border>
+                    <StackPanel Style="{StaticResource StackPanelTemplate}">
+                        <Label Content="ON:"></Label>
+                        <TextBox x:Name="ON">0.00</TextBox>
+                    </StackPanel>
+                </Border>
+
+                <Border>
+                    <StackPanel Style="{StaticResource StackPanelTemplate}">
+                        <Label Content="LPG:"></Label>
+                        <TextBox x:Name="LPG">0.00</TextBox>
+                    </StackPanel>
+                </Border>
+
+                <Border>
+                    <StackPanel Style="{StaticResource StackPanelTemplate}">
+                        <Label Content="Data:"></Label>
+                        <TextBox x:Name="Date">0.00</TextBox>
+                    </StackPanel>
+                </Border>
+
+                
+                <Button Width="80" Height="30" Margin="10" Content="Dodaj cenę" Click="BtnAddPrice"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

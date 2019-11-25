@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="ProjektStacjaWPF.Views.UserShowPricesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjektStacjaWPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="DataGridCell">
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+    </UserControl.Resources>
+    <DataGrid x:Name="UserList" AlternatingRowBackground="#E6E6E6" AutoGenerateColumns="False"
+              CanUserSortColumns="True" IsReadOnly="True">
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="ID" Width="50" Binding="{Binding Id}"/>
+            <DataGridTextColumn Header="PB95" Width="100" Binding="{Binding PricePB95}"/>
+            <DataGridTextColumn Header="PB98" Width="100" Binding="{Binding PricePB98}"/>
+            <DataGridTextColumn Header="ON" Width="100" Binding="{Binding PriceON}"/>
+            <DataGridTextColumn Header="LPG" Width="100" Binding="{Binding PriceLPG}"/>
+            <DataGridTextColumn Header="Data" Width="100" Binding="{Binding PriceDate}"/>
+        </DataGrid.Columns>
+    </DataGrid>
+</UserControl>

@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="ProjektStacjaWPF.Views.UserMyPointsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjektStacjaWPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <!--Stack Panel Style-->
+        <Style TargetType="{x:Type StackPanel}" x:Key="StackPanelTemplate">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Background" Value="Transparent"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#20202020"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--Label Style-->
+        <Style TargetType="{x:Type Label}">
+            <!--<Setter Property="Width" Value="100"/>-->
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+
+        <!--Textbox Style-->
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+        </Style>
+
+        <!--Border Style-->
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="BorderBrush" Value="Silver"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <Border BorderThickness="0,0,3,0" BorderBrush="Silver" Background="White">
+        <StackPanel>
+            <Label Content="Moje punkty" Margin="10" HorizontalAlignment="Left" FontWeight="Bold"/>
+            <Border>
+                <StackPanel Style="{StaticResource StackPanelTemplate}">
+                    <Label Content="Punkty:"></Label>
+                    <TextBox x:Name="Points">Halo</TextBox>
+                </StackPanel>
+            </Border>
+
+            <Label Content="Strefa Premium" Margin="10,30,10,10" HorizontalAlignment="Left" FontWeight="Bold"/>
+
+            <Label Content="Punkty uzyskuje się poprzez tankowanie oraz korzystanie z myjni:" HorizontalAlignment="Left" Margin="10,0,10,10"/>
+
+            <Border>
+                <StackPanel Style="{StaticResource StackPanelTemplate}">
+                    <Label Content="Korzystanie z myjni (standard/wosk):"></Label>
+                    <TextBox x:Name="Password">5pkt/10pkt</TextBox>
+                </StackPanel>
+            </Border>
+
+            <Border>
+                <StackPanel Style="{StaticResource StackPanelTemplate}">
+                    <Label Content="Tankowanie 10L paliwa (PB95, PB98, ON):"></Label>
+                    <TextBox>20pkt</TextBox>
+                </StackPanel>
+            </Border>
+
+            <Border>
+                <StackPanel Style="{StaticResource StackPanelTemplate}">
+                    <Label Content="Tankowanie 10L gazu LPG:"></Label>
+                    <TextBox>10pkt</TextBox>
+                </StackPanel>
+            </Border>
+
+            <Label Content="Punkty można wymienić na następujące bony:" HorizontalAlignment="Left" Margin="10,30,10,10"/>
+
+            <Border>
+                <StackPanel Style="{StaticResource StackPanelTemplate}">
+                    <Label Content="Darmowe skorzystanie z myjni:"></Label>
+                    <TextBox>300pkt</TextBox>
+                </StackPanel>
+            </Border>
+
+            <Border>
+            <StackPanel Style="{StaticResource StackPanelTemplate}">
+                <Label Content="Darmowe skorzystanie z myjni + woskowanie:"></Label>
+                <TextBox>400pkt</TextBox>
+            </StackPanel>
+            </Border>
+
+            <Border>
+                <StackPanel Style="{StaticResource StackPanelTemplate}">
+                    <Label Content="Bon gratis do tankowania paliwa (cena za 1L):"></Label>
+                    <TextBox>100pkt</TextBox>
+                </StackPanel>
+            </Border>
+
+            <Border>
+                <StackPanel Style="{StaticResource StackPanelTemplate}">
+                    <Label Content="Bon gratis do tankowania gazu (cena za 1L):"></Label>
+                    <TextBox>200pkt</TextBox>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Border>
+</UserControl>

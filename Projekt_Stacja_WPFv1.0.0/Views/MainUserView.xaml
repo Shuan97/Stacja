@@ -1,0 +1,165 @@
+﻿<Window x:Class="ProjektStacjaWPF.Views.MainUserView"
+        x:Name="MainUserViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektStacjaWPF.Views"
+        xmlns:views="clr-namespace:ProjektStacjaWPF.Views"
+        xmlns:viewModels="clr-namespace:ProjektStacjaWPF.ViewModels"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainUserView" WindowStyle="None" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    
+    <Window.Resources>
+        <DataTemplate x:Name="startPageTemplate" DataType="{x:Type viewModels:StartPageViewModel}">
+            <views:LoginView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="userShowInformationTemplate" DataType="{x:Type viewModels:UserShowInformationViewModel}">
+            <views:LoginView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="userEditDataTemplate" DataType="{x:Type viewModels:UserEditDataViewModel}">
+            <views:LoginView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="userPricesTemplate" DataType="{x:Type viewModels:UserPricesViewModel}">
+            <views:LoginView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="emplyeeShowUsersTemplate" DataType="{x:Type viewModels:EmployeeShowUsersViewModel}">
+            <views:LoginView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="emplyeeEditUsersTemplate" DataType="{x:Type viewModels:EmployeeEditUsersViewModel}">
+            <views:LoginView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="managerShowCameraTemplate" DataType="{x:Type viewModels:ManagerShowCameraViewModel}">
+            <views:LoginView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="userShowPricesTemplate" DataType="{x:Type viewModels:UserShowPricesViewModel}">
+            <views:LoginView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="adminAddPriceTemplate" DataType="{x:Type viewModels:AdminAddPriceViewModel}">
+            <views:LoginView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="userMyPointsTemplate" DataType="{x:Type viewModels:UserMyPointsViewModel}">
+            <views:LoginView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="emplyeeInvoiceTemplate" DataType="{x:Type viewModels:EmployeeInvoiceViewModel}">
+            <views:LoginView DataContext="{Binding}"/>
+        </DataTemplate>
+
+        <!--Menu Button Styles-->
+        <Style TargetType="Button" x:Key="BaseButtonStyle">
+            <Setter Property="Background" Value="#20060606"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="40"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="DeepSkyBlue"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+<!--Collapse Button Styles-->
+        <Style TargetType="Button" x:Key="CollapseButtonStyle">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="30"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,0,0,0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="DeepSkyBlue"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid x:Name="UserView" Height="600" Width="1000" Visibility="Visible">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="UserMenu" Grid.Column="0" Background="DodgerBlue">
+            <Button Content="Strona startowa" Style="{StaticResource BaseButtonStyle}" Click="StartPage" HorizontalContentAlignment="Left"/>
+
+            <Button Content="Użytkownik" Style="{StaticResource BaseButtonStyle}" Click="ButtonClick2"/>
+            <StackPanel x:Name="Menu2" Background="Transparent" Visibility="Collapsed">
+                <Button Content="Pokaż dane" Style="{StaticResource CollapseButtonStyle}" Click="BtnShowUser"/>
+                <Button Content="Edytuj dane" Style="{StaticResource CollapseButtonStyle}" Click="BtnEditUser"/>
+                <Button x:Name="ShowUsers" Content="Pokaż użytkowników" Style="{StaticResource CollapseButtonStyle}" Click="BtnShowUsers"/>
+                <Button x:Name="EditUsers" Content="Edytuj użytkowników" Style="{StaticResource CollapseButtonStyle}" Click="BtnEditUsers"/>
+            </StackPanel>
+
+            <Button Content="Program lojalnościowy" Style="{StaticResource BaseButtonStyle}" Click="BtnMyPoints"/>
+            <!--<StackPanel x:Name="Menu3" Background="Transparent" Visibility="Collapsed">
+                <Button Content="Moje punkty" Style="{StaticResource CollapseButtonStyle}" Click="BtnMyPoints"/>
+                <Button Content="Strefa premium" Style="{StaticResource CollapseButtonStyle}"/>
+            </StackPanel>-->
+
+            <Button Content="Cennik" Style="{StaticResource BaseButtonStyle}" Click="ButtonClickPrice"/>
+            <StackPanel x:Name="MenuCennik" Background="Transparent" Visibility="Collapsed">
+                <Button Content="Aktualne ceny" Style="{StaticResource CollapseButtonStyle}" Click="BtnPrices"/>
+                <Button Content="Historia cen" Style="{StaticResource CollapseButtonStyle}" Click="BtnShowPrices"/>
+                <Button x:Name="NewPrice" Content="Nowa cena" Style="{StaticResource CollapseButtonStyle}" Click="BtnAddPrice"/>
+            </StackPanel>
+
+            <Button x:Name="Invoice" Content="Wystaw fakturę" Style="{StaticResource BaseButtonStyle}" Click="BtnInvoice"/>
+
+            <Button x:Name="Camera" Content="Kamery" Style="{StaticResource BaseButtonStyle}" Click="ButtonShowCamera"/>
+
+            <!--<Button Content="Kamery" Style="{StaticResource BaseButtonStyle}" Click="ButtonCameraMenu"/>
+            <StackPanel x:Name="MenuCamera" Background="Transparent" Visibility="Collapsed">
+                <Button Content="Test" Style="{StaticResource CollapseButtonStyle}" Click="ButtonShowCamera"/>
+                <Button Content="Test" Style="{StaticResource CollapseButtonStyle}"/>
+            </StackPanel>-->
+
+            <!--<Button Content="Ustawienia" Style="{StaticResource BaseButtonStyle}" Click="ButtonClick2"/>
+            <StackPanel x:Name="Menu4" Background="Transparent" Visibility="Collapsed">
+                <Button Content="Test" Style="{StaticResource CollapseButtonStyle}"/>
+                <Button Content="Test" Style="{StaticResource CollapseButtonStyle}"/>
+                <Button Content="Test" Style="{StaticResource CollapseButtonStyle}"/>
+            </StackPanel>-->
+
+            <Button Content="Wyloguj" Style="{StaticResource BaseButtonStyle}" Click="BtnLogout"/>
+            <StackPanel x:Name="Menu5" Background="Transparent" Visibility="Collapsed">
+                <Button Content="Test" Style="{StaticResource CollapseButtonStyle}"/>
+                <Button Content="Test" Style="{StaticResource CollapseButtonStyle}"/>
+                <Button Content="Test" Style="{StaticResource CollapseButtonStyle}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Grid x:Name="RightPanel" Grid.Column="2" Background="DodgerBlue">
+            <!--<TextBox x:Name="TimerClock" Width="180" Height="100" VerticalAlignment="Top" Margin="0,20,0,0" IsReadOnly="True"/>-->
+        </Grid>
+
+        <ContentControl Grid.Column="1" Content="{Binding}"/>
+
+    </Grid>
+</Window>
